@@ -19,8 +19,8 @@ namespace projeto_academia
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5();
-            form5.Show();
+            FormPagamentos FormPagamentos = new FormPagamentos();
+            FormPagamentos.Show();
             this.Hide();
         }
 
