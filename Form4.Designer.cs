@@ -34,6 +34,7 @@
             btnInstrutor = new Button();
             label3 = new Label();
             button3 = new Button();
+            btnAlunos = new Button();
             SuspendLayout();
             // 
             // label1
@@ -69,7 +70,7 @@
             btnNome.Name = "btnNome";
             btnNome.Size = new Size(145, 48);
             btnNome.TabIndex = 2;
-            btnNome.Text = "Pagamentos";
+            btnNome.Text = "Cadastrar Pagamento";
             btnNome.UseVisualStyleBackColor = false;
             btnNome.Click += button1_Click;
             // 
@@ -77,7 +78,7 @@
             // 
             btnInstrutor.BackColor = Color.White;
             btnInstrutor.FlatStyle = FlatStyle.Flat;
-            btnInstrutor.Font = new Font("Microsoft JhengHei UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInstrutor.Font = new Font("Microsoft JhengHei UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInstrutor.Location = new Point(238, 216);
             btnInstrutor.Name = "btnInstrutor";
             btnInstrutor.Size = new Size(145, 49);
@@ -111,12 +112,26 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
+            // btnAlunos
+            // 
+            btnAlunos.BackColor = Color.White;
+            btnAlunos.FlatStyle = FlatStyle.Flat;
+            btnAlunos.Font = new Font("Microsoft JhengHei UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAlunos.Location = new Point(238, 325);
+            btnAlunos.Name = "btnAlunos";
+            btnAlunos.Size = new Size(145, 48);
+            btnAlunos.TabIndex = 6;
+            btnAlunos.Text = "Alunos";
+            btnAlunos.UseVisualStyleBackColor = false;
+            btnAlunos.Click += btnAlunos_Click;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.e863be10388e1829b8c2bd85bf81f8df;
             ClientSize = new Size(648, 450);
+            Controls.Add(btnAlunos);
             Controls.Add(button3);
             Controls.Add(label3);
             Controls.Add(btnInstrutor);
@@ -137,5 +152,6 @@
         private Button btnInstrutor;
         private Label label3;
         private Button button3;
+        private Button btnAlunos;
     }
 }

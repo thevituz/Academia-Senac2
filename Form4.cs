@@ -27,13 +27,20 @@ namespace projeto_academia
         private void button2_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-            form1.Show(); 
+            form1.Show();
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnAlunos_Click(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5();
+            form5.Show();
+            this.Hide();
         }
     }
 }

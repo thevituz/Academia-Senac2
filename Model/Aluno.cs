@@ -13,7 +13,7 @@ namespace projeto_academia.Model
         public DateTime DataCadastro { get; set; }
 
         // Listar alunos (SELECT)
-        public DataTable ListarAlunos()
+        public DataTable ListarAluno()
         {
             string comando = "SELECT id_aluno, nome, endereco, telefone, data_cadastro FROM aluno";
 

@@ -29,7 +29,7 @@ namespace projeto_academia
             var aluno = new projeto_academia.Model.Aluno();
             try
             {
-                DataTable dt = aluno.ListarAlunos();
+                DataTable dt = aluno.ListarAluno();
                 dataGridView1.DataSource = dt;
             }
             catch (Exception ex)

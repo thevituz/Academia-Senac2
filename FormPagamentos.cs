@@ -20,18 +20,18 @@ namespace projeto_academia
             ExibirPagamentos();
         }
 
-        // Carrega alunos no ComboBox (display=nome, value=id_aluno)
+      
         private void CarregarAlunos()
         {
             try
             {
                 var alunoModel = new Aluno();
-                DataTable dt = alunoModel.ListarAlunos();
+                DataTable dt = alunoModel.ListarAluno();
 
                 cmbAluno.DataSource = dt;
                 cmbAluno.DisplayMember = "nome";
                 cmbAluno.ValueMember = "id_aluno";
-                cmbAluno.SelectedIndex = -1; // nenhum selecionado por padrão
+                cmbAluno.SelectedIndex = -1; 
             }
             catch (Exception ex)
             {
@@ -49,13 +49,13 @@ namespace projeto_academia
             cmbMetodo.SelectedIndex = 0;
         }
 
-        // Exibe pagamentos no DataGridView
+        
         private void ExibirPagamentos()
         {
             try
             {
-                var pagModel = new Pagamento();
-                DataTable dt = pagModel.ListarPagamentos();
+                var pagModel = new Pagamentos();
+                DataTable dt = pagModel.ListarPagamentosEmDia();
                 dgvPagamentos.DataSource = dt;
 
                 // formatação opcional da coluna valor (se existir)
@@ -71,7 +71,7 @@ namespace projeto_academia
             }
         }
 
-        // Botão Cadastrar -> cria Pagamento e chama model
+       
         private void btnCadastrarPagamento_Click(object sender, EventArgs e)
         {
             if (cmbAluno.SelectedValue == null)
@@ -86,7 +86,7 @@ namespace projeto_academia
                 return;
             }
 
-            // parse decimal usando cultura atual (aceita vírgula ou ponto conforme sistema)
+           
             if (!decimal.TryParse(txtValor.Text, System.Globalization.NumberStyles.Number, CultureInfo.CurrentCulture, out decimal valor))
             {
                 MessageBox.Show("Valor inválido. Ex.: 120.50 ou 120,50");
@@ -96,11 +96,12 @@ namespace projeto_academia
             int idAluno = Convert.ToInt32(cmbAluno.SelectedValue);
             string metodo = cmbMetodo.Text.Trim();
 
-            var pag = new Pagamento
+            var pag = new Model.Pagamentos
             {
                 IdAluno = idAluno,
                 Valor = valor,
                 Metodo = metodo
+                
             };
 
             bool ok = pag.CadastrarPagamento();
@@ -118,7 +119,7 @@ namespace projeto_academia
             }
         }
 
-        // Botão Excluir -> deleta o pagamento selecionado no DataGridView
+        
         private void btnExcluirPagamento_Click(object sender, EventArgs e)
         {
             if (dgvPagamentos.SelectedRows.Count == 0)
@@ -155,7 +156,7 @@ namespace projeto_academia
             this.Hide();
         }
 
-        // Quando o usuário clicar em uma linha, opcionalmente carregar valores nos controles
+        
         private void dgvPagamentos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvPagamentos.SelectedRows.Count == 0) return;
@@ -164,10 +165,10 @@ namespace projeto_academia
             if (row.Cells["id_aluno"].Value != null)
             {
                 int idAluno = Convert.ToInt32(row.Cells["id_aluno"].Value);
-                // tenta selecionar o aluno no combobox
+                
                 for (int i = 0; i < cmbAluno.Items.Count; i++)
                 {
-                    // o DataSource é DataTable, então acessamos o item via DataRowView
+                    
                     var drv = cmbAluno.Items[i] as DataRowView;
                     if (drv != null && Convert.ToInt32(drv["id_aluno"]) == idAluno)
                     {
