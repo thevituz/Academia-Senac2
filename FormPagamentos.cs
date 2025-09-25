@@ -135,7 +135,7 @@ namespace projeto_academia
                 return;
             }
 
-            var pag = new Pagamento { IdPagamento = idPagamento };
+            var pag = new Pagamentos { IdPagamento = idPagamento };
             bool ok = pag.ApagarPagamento();
 
             if (ok)
